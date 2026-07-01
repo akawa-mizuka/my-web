@@ -1,0 +1,135 @@
+:root{
+  --primary-color: #9bae96;
+  --secondary-color: #7d98a1;
+  --background-color: #faf9f6;
+  --text-color: #2d3142;
+}
+[data-theme="dark"]{
+  --primary-color: #00f0ff;
+  --secondary-color: #f72585;
+  --background-color: #0b0c15;
+  --text-color: #e9e3e7;
+}
+body{
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease;
+  width: 100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* header */
+
+nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.nav-links a:hover {
+  background-color: var(--secondary-color);
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 34px;
+}
+.hamburger .line {
+  flex-basis: 100%;
+  height: 4px;
+  background-color: var(--text-color);
+  margin: 3px 0;
+}
+
+/* footer */
+
+.footer{
+  background-color: var(--primary-color);
+  bottom: 0;
+  padding: 1rem;
+}
+
+/* hero */
+
+.hero-space{
+  flex: 1;
+  display: flex;
+}
+.left,
+.right{
+  flex: 1;
+  padding: 1rem;
+  max-width: 700px; 
+	margin: 10px auto; 
+	padding: 10px; 
+}
+
+/* left */
+
+.pic-header {
+	width: 100%;
+	height: 200px;
+	margin-bottom: 10px;
+	background: var(--secondary-color);
+}
+.pic-profile {
+  width: 30%;
+  aspect-ratio: 1/1;
+	margin-bottom: 10px;
+  border-radius: 50%;
+	background: var(--secondary-color);
+}
+
+
+
+
+
+.spreadsheet{
+  background-color: var(--secondary-color);
+  padding: 1rem;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+	.hamburger {
+		display: flex;
+    flex-wrap: wrap;
+	}
+	.nav-links {
+		display: none;
+		flex-basis: 100%;
+    flex-wrap: wrap;
+	}
+	.nav-links li {
+		flex-basis: 100%;
+	}
+  .nav-links a {
+    font-size: 28px;
+  }
+  .nav-links a:hover {
+    background-color: var(--secondary-color);
+  }
+}
