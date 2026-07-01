@@ -14,9 +14,6 @@ body{
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 0.5s ease;
-  width: 100%;
-}
-.container{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -25,29 +22,34 @@ body{
 /* header */
 
 nav {
-  position: sticky;
+  position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 15px;
   z-index: 1000;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  background: #9bae9680;
+  height: fit-content;
 }
 .nav-links {
   display: flex;
   list-style: none;
   align-items: center;
 }
-.nav-links a {
+.nav-links a,.theme-mode, .volume {
   text-decoration: none;
   color: var(--text-color);
   font-weight: bold;
   padding: 5px 10px;
   border-radius: 10px;
 }
-.nav-links a:hover {
+.nav-links a:hover, .theme-mode:hover, .volume:hover {
   background-color: var(--secondary-color);
+}
+.blank-space{
+  width: 2fr;
 }
 .hamburger {
   display: none;
@@ -56,7 +58,7 @@ nav {
 }
 .hamburger .line {
   flex-basis: 100%;
-  height: 4px;
+  height: 3px;
   background-color: var(--text-color);
   margin: 3px 0;
 }
@@ -66,7 +68,9 @@ nav {
 .footer{
   background-color: var(--primary-color);
   bottom: 0;
-  padding: 1rem;
+  width: 100%;
+  height: fit-content;
+  text-align: center;
 }
 
 /* hero */
@@ -74,6 +78,8 @@ nav {
 .hero-space{
   flex: 1;
   display: flex;
+  padding: 0  1rem;
+  margin-top: 2rem;
 }
 .left,
 .right{
@@ -85,19 +91,28 @@ nav {
 }
 
 /* left */
-
+.container-picture{
+  width: 100%; 
+  height: fit-content;
+  background: salmon;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .pic-header {
+  max-width: 640px;
 	width: 100%;
-	height: 200px;
-	margin-bottom: 10px;
 	background: var(--secondary-color);
+  border-radius: 10px;
+  aspect-ratio: 16/9;
 }
 .pic-profile {
-  width: 30%;
+  max-width: 150px;
+  width: 100%;
   aspect-ratio: 1/1;
-	margin-bottom: 10px;
   border-radius: 50%;
-	background: var(--secondary-color);
+	background: var(--primary-color);
 }
 
 
@@ -127,9 +142,14 @@ nav {
 		flex-basis: 100%;
 	}
   .nav-links a {
-    font-size: 28px;
+    font-size: 24px;
   }
   .nav-links a:hover {
     background-color: var(--secondary-color);
   }
+  .hero-space{
+    display: block;
+  }
+  .pic-header {
+  max-width: 460px;}
 }
