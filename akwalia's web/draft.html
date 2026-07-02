@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akwalia's Digital Space</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* CSS VARIABLES FOR LIGHT & DARK MODE */
+        :root {
+            /* Light Mode: Clinical Pastel */
+            --bg-color: #FAF9F6;
+            --card-bg: #FFFFFF;
+            --text-color: #2D3142;
+            --text-muted: #5C6175;
+            --primary-accent: #9BAE96;
+            --secondary-accent: #7D98A1;
+            --border-color: #E2E4E8;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --transition-speed: 0.3s;
+        }
+
+        [data-theme="dark"] {
+            /* Dark Mode: Cosmic / Deep Space */
+            --bg-color: #0B0C15;
+            --card-bg: #131526;
+            --text-color: #E0E3E7;
+            --text-muted: #A0A5B5;
+            --primary-accent: #00F0FF;
+            --secondary-accent: #F72585;
+            --border-color: #22263F;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* HEADER & THEME TOGGLE */
+        header {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .theme-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px var(--shadow);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .theme-btn:hover {
+            border-color: var(--primary-accent);
+            transform: translateY(-1px);
+        }
+
+        /* CONTAINER FOR HOME PAGE */
+        main {
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px 60px 20px;
+        }
+
+        /* PROFILE CARD WITH RESPONSIVE BANNER */
+        .profile-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+        }
+
+        /* Responsive Banner (3:1 Aspect Ratio) */
+        .banner-container {
+            width: 100%;
+            aspect-ratio: 3 / 1;
+            background: linear-gradient(135deg, var(--secondary-accent), var(--primary-accent));
+            position: relative;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+        }
+
+        /* Profile Details & Avatar Overlay */
+        .profile-info {
+            padding: 0 30px 30px 30px;
+            position: relative;
+            text-align: left;
+        }
+
+        /* Circular Avatar (1:1 Aspect Ratio) */
+        .avatar-container {
+            width: 110px;
+            height: 110px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 5px solid var(--card-bg);
+            background-color: #CDD4DB;
+            position: relative;
+            margin-top: -55px; /* Pulls avatar up into banner */
+            overflow: hidden;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: border-color var(--transition-speed) ease;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-text {
+            margin-top: 15px;
+        }
+
+        .profile-text h1 {
+            font-size: 1.8rem;
+            margin: 0 0 8px 0;
+            font-weight: 700;
+        }
+
+        .profile-text h2 {
+            font-size: 1.1rem;
+            color: var(--primary-accent);
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+
+        .profile-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* DROPDOWN TABS ACCORDION */
+        .tabs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tab-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px var(--shadow);
+            overflow: hidden;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .tab-header {
+            width: 100%;
+            padding: 18px 24px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .tab-header:hover {
+            color: var(--primary-accent);
+        }
+
+        .tab-icon {
+            font-size: 1.2rem;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        /* Smooth Height Transition from 0 to fit-content using max-height style injection */
+        .tab-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-inner {
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid transparent;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tab-item.active .tab-content {
+            max-height: 500px; /* Large enough to fit the content dynamically */
+        }
+
+        .tab-item.active .tab-header {
+            color: var(--primary-accent);
+        }
+
+        .tab-item.active .tab-icon {
+            transform: rotate(180deg);
+        }
+
+        .tab-item.active .tab-inner {
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* EMBED RESIZING FOR RESPONSIVE GOOGLE SHEETS DISPLAY */
+        .spreadsheet-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-top: 12px;
+        }
+
+        .spreadsheet-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* FOOTER & SOCIAL MEDIA */
+        footer {
+            margin-top: auto;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-accent);
+            transform: translateY(-2px);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* RESPONSIVE DESIGN ADJUSTMENTS */
+        @media (max-width: 600px) {
+            .profile-info {
+                padding: 0 20px 20px 20px;
+            }
+            .avatar-container {
+                width: 90px;
+                height: 90px;
+                margin-top: -45px;
+            }
+            .profile-text h1 {
+                font-size: 1.5rem;
+            }
+            .tab-header {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            .tab-inner {
+                padding: 0 20px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="theme-btn" id="themeToggle" aria-label="Toggle dark/light mode">
+            <span id="themeBtnIcon">🌙</span>
+            <span id="themeBtnText">Dark Mode</span>
+        </button>
+    </header>
+
+    <main>
+        <!-- PROFILE CARD SECTION -->
+        <section class="profile-card">
+            <!-- 3:1 Responsive Banner -->
+            <div class="banner-container">
+                <!-- Replace src with your real banner image URL later -->
+                <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #1f233a, #3f51b5); opacity: 0.4;"></div>
+            </div>
+            
+            <div class="profile-info">
+                <!-- 1:1 Circular Avatar -->
+                <div class="avatar-container">
+                    <!-- Replace src with your real avatar or art drawing later -->
+                    <div style="width: 100%; height: 100%; background-color: #8fa0be;"></div>
+                </div>
+                
+                <div class="profile-text">
+                    <h1>Hi there! I'm Akwalia. 🩺✨</h1>
+                    <h2>Nursing student by day, digital artist and gamer by night.</h2>
+                    <p>Welcome to my little digital space! I built this website just for fun to keep track of my class schedules, archive my college assignments, and of course, showcase my illustrations. Feel free to look around!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DROPDOWN TABS SECTION (Height: 0 to fit-content) -->
+        <section class="tabs-container">
+            
+            <!-- Tab 1: Class Schedule -->
+            <div class="tab-item">
+                <button class="tab-header" onclick="toggleTab(this)">
+                    <span>📅 College Schedule (Google Sheets)</span>
+                    <span class="tab-icon">▼</span>
+                </button>
+                <div class="tab-content">
+                    <div class="tab-inner">
+                        <p>Here is my automatically synchronized schedule for the S1 Keperawatan program. Always up-to-date.</p>
+                        <!-- Responsive Spreadsheet Display -->
+                        <div class="spreadsheet-wrapper">
+                            <!-- PASTE YOUR GOOGLE SHEETS EMBED LINK HERE IN THE SRC ATTRIBUTE -->
+                            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQXXXXXXXXXXXX/pubhtml?widget=true&amp;headers=false"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 2: Digital Art Gallery Preview -->
+            <div class="tab-item">
+                <button class="tab-header" onclick="toggleTab(this)">
+                    <span>🎨 Canvas & Pixels Gallery</span>
+                    <span class="tab-icon">▼</span>
+                </button>
+                <div class="tab-content">
+                    <div class="tab-inner">
+                        <p>A collection of doodles, sketches, and digital illustrations I make in my free time. Mostly inspired by the things I've been loving lately.</p>
+                        <p style="margin-top: 10px;"><a href="art-gallery.html" style="color: var(--primary-accent); text-decoration: none; font-weight: bold;">→ View Full Art Webpage (Masonry Grid)</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Academic Archive -->
+            <div class="tab-item">
+                <button class="tab-header" onclick="toggleTab(this)">
+                    <span>📚 College Survival Kit Archive</span>
+                    <span class="tab-icon">▼</span>
+                </button>
+                <div class="tab-content">
+                    <div class="tab-inner">
+                        <p>An archive of lecture materials, summaries, and assignment drafts. Neatly organized so they're easy to find during exam season (or whenever I suddenly forget the material).</p>
+                        <p style="margin-top: 10px;"><a href="academic-archive.html" style="color: var(--primary-accent); text-decoration: none; font-weight: bold;">→ Open Lecture Files Webpage</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- GLOBAL FOOTER -->
+    <footer>
+        <div class="social-links">
+            <!-- Insert your real social media usernames/links below -->
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram">📸 Instagram</a>
+            <a href="https://twitter.com/" target="_blank" aria-label="Twitter/X">🐦 Twitter / X</a>
+            <a href="https://github.com/" target="_blank" aria-label="GitHub">💻 GitHub</a>
+        </div>
+        <p>© 2026 Akwalia Khairummina. Built with a lot of coffee and late-night ideas.</p>
+    </footer>
+
+    <!-- INTERACTIVE THEME & ACCORDION JAVASCRIPT -->
+    <script>
+        // Light / Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeBtnIcon = document.getElementById('themeBtnIcon');
+        const themeBtnText = document.getElementById('themeBtnText');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeBtnIcon.textContent = '🌙';
+                themeBtnText.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeBtnIcon.textContent = '☀️';
+                themeBtnText.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Initialize user preferred theme from local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeBtnIcon.textContent = '☀️';
+            themeBtnText.textContent = 'Light Mode';
+        }
+
+        // Accordion Dropdown Toggle (Height 0 to fit-content smoothly)
+        function toggleTab(button) {
+            const currentTabItem = button.parentElement;
+            const isOpen = currentTabItem.classList.contains('active');
+            
+            // Close all tabs if you want an accordion style, or comment out the next 3 lines to keep multiple tabs open
+            document.querySelectorAll('.tab-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            if (!isOpen) {
+                currentTabItem.classList.add('active');
+            } else {
+                currentTabItem.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
