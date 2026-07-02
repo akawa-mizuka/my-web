@@ -1,146 +1,141 @@
-:root{
-  --primary-color: #9bae96;
-  --secondary-color: #7d98a1;
-  --background-color: #faf9f6;
-  --text-color: #2d3142;
+:root {
+	--primary-color: #9bae96;
+	--secondary-color: #7d98a1;
+	--background-color: #faf9f6;
+	--text-color: #2d3142;
+}
+[data-theme="dark"] {
+	--primary-color: #00f0ff;
+	--secondary-color: #f72585;
+	--background-color: #0b0c15;
+	--text-color: #e9e3e7;
 }
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 }
-[data-theme="dark"]{
-  --primary-color: #00f0ff;
-  --secondary-color: #f72585;
-  --background-color: #0b0c15;
-  --text-color: #e9e3e7;
-}
-body{
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.5s ease;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
+body {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	padding: 20px 40px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 /* header */
-
 nav {
-  position: fixed;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15px;
-  z-index: 1000;
-  backdrop-filter: blur(5px);
-  background: #9bae9680;
-  height: fit-content;
-  width: 100%;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	z-index: 1000;
+	backdrop-filter: blur(5px);
+	background: #9bae9680;
+	height: fit-content;
+	width: 100%;
 }
 .nav-links {
-  display: flex;
-  list-style: none;
-  align-items: center;
+	display: flex;
+	list-style: none;
+	align-items: center;
 }
-.nav-links a,.theme-mode, .volume {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 10px;
+.nav-links a,
+.theme-mode,
+.volume {
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: bold;
+	padding: 5px 10px;
+	border-radius: 10px;
 }
-.nav-links a:hover, .theme-mode:hover, .volume:hover {
-  background-color: var(--secondary-color);
+.nav-links a:hover,
+.theme-mode:hover,
+.volume:hover {
+	background-color: var(--secondary-color);
 }
-.blank-space{
-  width: 2fr;
+.blank-space {
+	width: 2fr;
 }
 .hamburger {
-  display: none;
-  cursor: pointer;
-  width: 34px;
+	display: none;
+	cursor: pointer;
+	width: 34px;
 }
 .hamburger .line {
-  flex-basis: 100%;
-  height: 3px;
-  background-color: var(--text-color);
-  margin: 3px 0;
+	flex-basis: 100%;
+	height: 3px;
+	background-color: var(--text-color);
+	margin: 3px 0;
 }
 
-/* footer */
-
-.footer{
-  background-color: var(--primary-color);
-  bottom: 0;
-  width: 100%;
-  height: fit-content;
-  text-align: center;
-}
-
-/* hero */
-
-.hero-space{
-  flex: 1;
-  display: flex;
-  padding: 0  1rem;
-  margin-top: 2rem;
+/* hero section */
+.hero-space {
+	flex: 1;
+	display: flex;
+	padding: 0 1rem;
+	margin-top: 2rem;
 }
 .left,
-.right{
-  flex: 1;
-  padding: 1rem;
-  max-width: 700px; 
-	margin: 10px auto; 
-	padding: 10px; 
+.right {
+	flex: 1;
+	padding: 1rem;
+	max-width: 700px;
+	margin: 10px auto;
+	padding: 10px;
 }
 
-/* left */
+/* left section */
+/* profile */
 
-
-
-
-
-
-
-
-
-
-
-
-.spreadsheet{
-  background-color: var(--secondary-color);
-  padding: 1rem;
+/* middle section */
+.spreadsheet {
+	background-color: var(--secondary-color);
+	padding: 1rem;
 }
 
 /* responsive */
 @media (max-width: 768px) {
-  nav {
-    flex-wrap: wrap;
-  }
+	nav {
+		flex-wrap: wrap;
+	}
 	.hamburger {
 		display: flex;
-    flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	.nav-links {
 		display: none;
 		flex-basis: 100%;
-    flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	.nav-links li {
 		flex-basis: 100%;
 	}
-  .nav-links a {
-    font-size: 24px;
-  }
-  .nav-links a:hover {
-    background-color: var(--secondary-color);
-  }
-  .hero-space{
-    display: block;
-  }
-  .pic-header {
-  max-width: 460px;}
+	.nav-links a {
+		font-size: 24px;
+	}
+	.nav-links a:hover {
+		background-color: var(--secondary-color);
+	}
+	.hero-space {
+		display: block;
+	}
+	.pic-header {
+		max-width: 460px;
+	}
+}
+
+/* footer */
+.footer {
+	background-color: var(--primary-color);
+	bottom: 0;
+	width: 100%;
+	height: fit-content;
+	text-align: center;
 }

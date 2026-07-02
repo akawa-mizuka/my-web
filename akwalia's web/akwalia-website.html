@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akwalia K. - Digital Corner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables untuk Light/Dark Mode */
+        :root {
+            /* Mode Siang: Clinical Pastel */
+            --bg-color: #FAF9F6;
+            --surface-color: #E2E5E1; /* Warna abu-abu pastel untuk card */
+            --tag-color: #C8CCC7;
+            --text-color: #2D3142;
+            --primary-accent: #9BAE96;
+            --border-radius: 16px;
+        }
+
+        [data-theme="dark"] {
+            /* Mode Malam: Cosmic / Deep Space */
+            --bg-color: #0B0C15;
+            --surface-color: #1C1E2B;
+            --tag-color: #2A2D40;
+            --text-color: #E0E3E7;
+            --primary-accent: #00F0FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- Navbar --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 40px 0;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav-icons span:hover {
+            color: var(--primary-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-accent);
+        }
+
+        /* --- Main Layout --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+        }
+
+        /* --- Left Column --- */
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+        }
+
+        .profile-info h1 {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .profile-info p {
+            font-size: 12px;
+            margin-top: 4px;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: var(--tag-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .color-wheel-placeholder {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            height: 300px; /* Tempat untuk color wheel / ilustrasi */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.5;
+        }
+
+        /* --- Right Column --- */
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .bio-card h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .bio-card h3 {
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .bio-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .about-card {
+            flex-grow: 1; /* Supaya tingginya menyesuaikan sisa ruang */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-card h2 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .lines {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background-color: var(--text-color);
+            opacity: 0.2;
+        }
+
+        .tap-more {
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* --- Bottom Section (Guide) --- */
+        .guide-section {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .guide-section h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .spreadsheet-placeholder {
+            background-color: var(--bg-color);
+            width: 100%;
+            height: 400px; /* Tinggi spreadsheet */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            opacity: 0.5;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            font-size: 12px;
+            font-style: italic;
+            opacity: 0.8;
+            padding-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none; /* Sembunyikan menu di mobile, bisa diganti hamburger menu nanti */
+            }
+            body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-icons">
+            <span onclick="toggleTheme()" title="Toggle Light/Dark Mode">☀️ / 🌙</span>
+            <span>🔊</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">MY GUIDE</a>
+            <a href="#">ABOUT ME</a>
+            <a href="#">PIXELS</a>
+            <a href="#">SURVIVAL KITS</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="grid-container">
+            
+            <!-- Kiri -->
+            <div class="left-col">
+                <div class="card profile-card">
+                    <div class="profile-header">
+                        <div class="avatar"></div>
+                        <div class="profile-info">
+                            <h1>AKWALIA K. <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></h1>
+                            <p>born in Indonesia, 24 september 2006</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stats">
+                        <span>🖤 likes</span>
+                        <span>👥 visitors</span>
+                    </div>
+
+                    <div class="tags">
+                        <span class="tag">credits</span>
+                        <span class="tag">fandoms</span>
+                        <span class="tag">faq</span>
+                        <span class="tag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                </div>
+
+                <!-- Box abu-abu kosong di desain -->
+                <div class="color-wheel-placeholder">
+                    [ Interactive Color Wheel / Art Goes Here ]
+                </div>
+            </div>
+
+            <!-- Kanan -->
+            <div class="right-col">
+                <div class="card bio-card">
+                    <h2>hi, i'm akwalia khairummina</h2>
+                    <h3>nursing student by day, gamer and digital artist by night</h3>
+                    <p>welcome to my little digital corner. I build this website for fun because my exam is coming and suddenly i have urge to make this lol. i think i will use these for keep track my class schedules, archive my college files and courses, showcase my artwork and more things. feel free to look around~</p>
+                </div>
+
+                <div class="card about-card">
+                    <h2>ABOUT ME</h2>
+                    <div class="lines">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="line"></div>
+                    </div>
+                    <span class="tap-more">tap for more</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Guide Section Bawah -->
+        <div class="guide-section">
+            <h2>current semester survival guide</h2>
+            <div class="spreadsheet-placeholder">
+                [ Google Sheets / Iframe Placeholder ]
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>©2026 AKWALIA KHAIRUMMINA.</p>
+        <p>BUILD WITH A LOT DEADLINES AND LATE NIGHT IDEAS</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            if (htmlTag.getAttribute('data-theme') === 'light') {
+                htmlTag.setAttribute('data-theme', 'dark');
+            } else {
+                htmlTag.setAttribute('data-theme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>
