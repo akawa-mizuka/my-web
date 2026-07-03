@@ -59,14 +59,37 @@
 
 			<!-- TABS SECTION -->
 			<section class="tab-card">
-				<!-- wrapper -->
-				<div class="tab-info">
-					<!-- TAB 1: SOCIALS -->
-					<div class="tabs">
-						<details class="tab">
-							<summary class="tab-name">Socials</summary>
-						</details>
-						<div class="tab-content">
+				<div class="tabs-container">
+					<!-- Tab Buttons -->
+					<div class="tab-buttons">
+						<button
+							class="tab-btn"
+							data-target="socials"
+							>socials</button
+						>
+						<button
+							class="tab-btn"
+							data-target="fandoms"
+							>fandoms</button
+						>
+						<button
+							class="tab-btn"
+							data-target="credits"
+							>credits</button
+						>
+						<button
+							class="tab-btn"
+							data-target="faq"
+							>faq</button
+						>
+					</div>
+
+					<!-- TAB 1 - SOCIALS -->
+					<div
+						class="tab-content-wrapper"
+						id="socials">
+						<div class="tab-inner">
+							<h3>Socials</h3>
 							<p>Follow me on my social media accounts:</p>
 							<ul>
 								<li><a href="#">Twitter</a></li>
@@ -76,12 +99,12 @@
 						</div>
 					</div>
 
-					<!-- TAB 2: FANDOMS -->
-					<div class="tabs">
-						<details class="tab">
-							<summary class="tab-name">Fandoms</summary>
-						</details>
-						<div class="tab-content">
+					<!-- TAB 2 - FANDOMS -->
+					<div
+						class="tab-content-wrapper"
+						id="fandoms">
+						<div class="tab-inner">
+							<h3>Fandoms</h3>
 							<p>I'm a part of several fandoms, including:</p>
 							<ul>
 								<li><a href="#">Anime</a></li>
@@ -91,12 +114,12 @@
 						</div>
 					</div>
 
-					<!-- TAB 3: CREDITS -->
-					<div class="tabs">
-						<details class="tab">
-							<summary class="tab-name">Credits</summary>
-						</details>
-						<div class="tab-content">
+					<!-- TAB 3 - CREDITS -->
+					<div
+						class="tab-content-wrapper"
+						id="credits">
+						<div class="tab-inner">
+							<h3>Credits</h3>
 							<p
 								>Special thanks to all the amazing creators and artists who inspire me
 								every day. Your work is truly appreciated!</p
@@ -104,17 +127,20 @@
 						</div>
 					</div>
 
-					<!-- TAB 4: FAQ -->
-					<div class="tabs">
-						<details class="tab">
-							<summary class="tab-name">FAQ</summary>
-						</details>
-						<div class="tab-content">
+					<!-- TAB 4 - FAQ -->
+					<div
+						class="tab-content-wrapper"
+						id="faq">
+						<div class="tab-inner">
+							<h3>FAQ</h3>
 							<p>If you have any questions, feel free to reach out!</p>
 						</div>
 					</div>
 				</div>
 			</section>
+
+			<!-- TAB JAVASCRIPT -->
+			<script src="./js/tab.js"></script>
 
 			<!-- bio section -->
 			<section class="bio-card">

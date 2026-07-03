@@ -5,206 +5,214 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<section class="tab-card">
-			<div
-				class="tab-info"
-				id="tabButtonContainer">
-				<div
-					class="tabs"
-					data-tab="socials">
-					<div
-						class="tab-name"
-						onclick="toggleActiveTab('socials')"
-						>Socials</div
-					>
-				</div>
-
-				<div
-					class="tabs"
-					data-tab="fandoms">
-					<div
-						class="tab-name"
-						onclick="toggleActiveTab('fandoms')"
-						>Fandoms</div
-					>
-				</div>
-
-				<div
-					class="tabs"
-					data-tab="credits">
-					<div
-						class="tab-name"
-						onclick="toggleActiveTab('credits')"
-						>Credits</div
-					>
-				</div>
-			</div>
-
-			<div class="tab-drawer-container">
-				<div
-					class="tab-content"
-					id="content-socials">
-					<div class="tab-content-inner">
-						<p>Follow me on my social media accounts:</p>
-						<ul>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">Instagram</a></li>
-							<li><a href="#">ArtStation</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div
-					class="tab-content"
-					id="content-fandoms">
-					<div class="tab-content-inner">
-						<p>I'm a part of several fandoms, including:</p>
-						<ul>
-							<li><a href="#">Anime</a></li>
-							<li><a href="#">Video Games</a></li>
-							<li><a href="#">Books</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<div
-					class="tab-content"
-					id="content-credits">
-					<div class="tab-content-inner">
-						<p
-							>Special thanks to all the amazing creators and artists who inspire me
-							every day. Your work is truly appreciated!</p
-						>
-					</div>
-				</div>
-			</div>
-		</section>
-
+		<title>Drawer Tabs</title>
 		<style>
-			/* --- TAB CARD CONTAINER --- */
-			.tab-card {
-				background-color: var(--card-bg);
-				border-radius: 16px;
-				box-shadow: 0 4px 20px var(--shadow);
-				border: 1px solid var(--border-color);
-				margin-bottom: 30px;
-				padding: 24px 30px;
-				transition: all var(--transition-speed) ease;
+			/* Reset & Basic Styling */
+			* {
+				box-sizing: border-box;
+				font-family:
+					system-ui,
+					-apple-system,
+					sans-serif;
 			}
 
-			/* Barisan tombol kapsul horizontal */
-			.tab-info {
+			body {
+				background-color: #ffffff;
+				padding: 40px;
 				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 12px;
-				margin-bottom: 10px; /* Jarak ke area kontainer drawer */
-				transition: all 0.4s ease;
+				justify-content: center;
 			}
 
-			/* Gaya dasar tombol kapsul */
-			.tab-name {
-				padding: 8px 20px;
-				border: 2px solid #9dad6f;
-				border-radius: 24px;
+			.tabs-container {
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			/* Tab Buttons */
+			.tab-buttons {
+				display: flex;
+				gap: 16px;
+				justify-content: center;
+				margin-bottom: 24px;
+			}
+
+			.tab-btn {
+				background-color: #e5e5e5;
+				border: none;
+				border-radius: 20px;
+				padding: 10px 24px;
+				font-size: 16px;
+				font-weight: 700;
 				cursor: pointer;
-				font-weight: 600;
-				font-size: 0.9rem;
-				color: #9dad6f;
-				text-transform: capitalize;
-				background: transparent;
-				transition: all 0.3s ease;
-				user-select: none;
-			}
-
-			/* Ketika tombol tab tersebut aktif */
-			.tabs.active .tab-name {
-				background: #9dad6f;
-				color: #191f14;
-			}
-
-			/* --- SELEKTOR MEREDUPKAN TOMBOL LAIN --- */
-			/* Jika kontainer tombol memiliki kelas .has-active, redupkan semua tombol di dalamnya */
-			.tab-info.has-active .tabs {
-				opacity: 0.4;
-				filter: grayscale(1);
-			}
-			/* Kecuali untuk tombol yang memiliki kelas .active, biarkan tetap terang */
-			.tab-info.has-active .tabs.active {
-				opacity: 1;
-				filter: none;
-			}
-
-			/* --- AREA KONTEN DRAWER (DI DALAM CARD) --- */
-			.tab-drawer-container {
-				position: relative;
-				width: 100%;
-			}
-
-			/* Gaya dasar konten (Menutup: height 0, opacity 0) */
-			.tab-content {
-				max-height: 0;
-				overflow: hidden;
-				opacity: 0;
-				visibility: hidden;
-				transform: translateY(-10px); /* Efek naik sedikit saat menutup */
 				transition:
-					max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-					opacity 0.4s ease,
-					transform 0.4s ease,
-					visibility 0.4s;
+					background-color 0.2s ease,
+					transform 0.1s ease;
+				color: #000;
 			}
 
-			/* Pembungkus bagian dalam agar padding tidak merusak kalkulasi height 0 */
-			.tab-content-inner {
-				padding: 20px;
-				margin-top: 15px;
-				background-color: transparent;
-				border: 2px solid #bbcaa2;
-				border-radius: 12px;
-				color: var(--text-muted);
+			.tab-btn:hover {
+				background-color: #d4d4d4;
 			}
 
-			/* Ketika konten dibuka lewat JavaScript (Membuka: turun & membesar) */
-			.tab-content.open {
-				max-height: 500px; /* Nilai maksimal tinggi drawer yang aman */
+			.tab-btn:active {
+				transform: scale(0.95);
+			}
+
+			.tab-btn.active {
+				background-color: #cccccc; /* Slightly darker when active */
+			}
+
+			/* Tab Content Wrapper (The Drawer Magic) */
+			.tab-content-wrapper {
+				display: grid;
+				grid-template-rows: 0fr; /* Starts collapsed */
+				transition:
+					grid-template-rows 0.4s ease-out,
+					margin 0.4s ease-out;
+				border-radius: 16px;
+				background-color: #d4d4d4; /* Matches Figma screenshot */
+			}
+
+			.tab-content-wrapper.open {
+				grid-template-rows: 1fr; /* Expands to fit content */
+				margin-bottom: 20px; /* Optional: adds space between open drawer and anything below it */
+			}
+
+			/* Inner content */
+			.tab-inner {
+				overflow: hidden; /* Required for the grid animation to work */
+				min-height: 0; /* Required for the grid animation to work */
+				padding: 0 32px; /* Starts with 0 vertical padding */
+				opacity: 0;
+				transition:
+					padding 0.4s ease-out,
+					opacity 0.3s ease-out;
+			}
+
+			.tab-content-wrapper.open .tab-inner {
+				padding: 32px; /* Adds vertical padding only when open */
 				opacity: 1;
-				visibility: visible;
-				transform: translateY(0); /* Turun kembali ke posisi normal */
+			}
+
+			/* Typography Inside Tabs */
+			.tab-inner h3 {
+				margin-top: 0;
+				font-size: 24px;
+				font-weight: 500;
+			}
+
+			.tab-inner p {
+				font-size: 18px;
+				margin-bottom: 12px;
+			}
+
+			.tab-inner ul {
+				padding-left: 24px;
+				font-size: 18px;
+			}
+
+			.tab-inner li {
+				margin-bottom: 8px;
+			}
+
+			.tab-inner a {
+				color: #000;
+				text-decoration: underline;
 			}
 		</style>
+	</head>
+	<body>
+		<div class="tabs-container">
+			<div class="tab-buttons">
+				<button
+					class="tab-btn"
+					data-target="credits"
+					>credits</button
+				>
+				<button
+					class="tab-btn"
+					data-target="fandoms"
+					>fandoms</button
+				>
+				<button
+					class="tab-btn"
+					data-target="faq"
+					>faq</button
+				>
+				<button
+					class="tab-btn"
+					data-target="socials"
+					>socials</button
+				>
+			</div>
+
+			<div
+				class="tab-content-wrapper"
+				id="credits">
+				<div class="tab-inner">
+					<h3>Credits</h3>
+					<p>Nothing here yet...</p>
+				</div>
+			</div>
+
+			<div
+				class="tab-content-wrapper"
+				id="fandoms">
+				<div class="tab-inner">
+					<h3>Fandoms</h3>
+					<p>Nothing here yet...</p>
+				</div>
+			</div>
+
+			<div
+				class="tab-content-wrapper"
+				id="faq">
+				<div class="tab-inner">
+					<h3>FAQ</h3>
+					<p>Nothing here yet...</p>
+				</div>
+			</div>
+
+			<div
+				class="tab-content-wrapper"
+				id="socials">
+				<div class="tab-inner">
+					<h3>Socials</h3>
+					<p>Follow me on my social media accounts:</p>
+					<ul>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">ArtStation</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
 		<script>
-			function toggleActiveTab(tabId) {
-				const clickedTabButton = document.querySelector(
-					`.tabs[data-tab="${tabId}"]`,
-				);
-				const clickedTabContent = document.getElementById(`content-${tabId}`);
-				const buttonContainer = document.getElementById("tabButtonContainer");
+			// Select all our buttons and content wrappers
+			const tabButtons = document.querySelectorAll(".tab-btn");
+			const tabContents = document.querySelectorAll(".tab-content-wrapper");
 
-				// 1. Cek apakah tab yang diklik saat ini sudah terbuka atau belum
-				const isAlreadyOpen = clickedTabButton.classList.contains("active");
+			tabButtons.forEach((button) => {
+				button.addEventListener("click", () => {
+					const targetId = button.getAttribute("data-target");
+					const targetContent = document.getElementById(targetId);
 
-				// 2. Tutup semua tab yang sedang terbuka terlebih dahulu (Sistem Satu Terbuka)
-				document
-					.querySelectorAll(".tabs")
-					.forEach((btn) => btn.classList.remove("active"));
-				document
-					.querySelectorAll(".tab-content")
-					.forEach((content) => content.classList.remove("open"));
-				buttonContainer.classList.remove("has-active");
+					// Check if the clicked tab is already open
+					const isOpen = targetContent.classList.contains("open");
 
-				// 3. Jika tab belum terbuka, maka buka tab tersebut
-				if (!isAlreadyOpen) {
-					clickedTabButton.classList.add("active");
-					clickedTabContent.classList.add("open");
-					buttonContainer.classList.add("has-active"); // Meredupkan tombol lainnya via CSS
-				}
-				// Jika tab sudah terbuka dan diklik lagi, dia akan menutup secara manual (kembali ke kondisi awal)
-			}
+					// 1. Close ALL tabs first (this handles the "auto close others" request)
+					tabContents.forEach((content) => content.classList.remove("open"));
+					tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+					// 2. If the clicked tab was NOT open, open it now.
+					// (If it was open, it just stays closed, completing the toggle effect)
+					if (!isOpen) {
+						targetContent.classList.add("open");
+						button.classList.add("active");
+					}
+				});
+			});
 		</script>
 	</body>
 </html>

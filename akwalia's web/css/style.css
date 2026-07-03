@@ -18,9 +18,9 @@
 	margin: 0;
 }
 
-* {
+/* * {
 	outline: 1px solid salmon;
-}
+} */
 
 details > summary {
 	list-style: none;
@@ -40,6 +40,7 @@ details > summary::-webkit-details-marker {
 	--border-color: #e2e4e8;
 	--shadow: rgba(0, 0, 0, 0.05);
 	--transition-speed: 0.3s;
+	--transition-speed1: 0.4s;
 }
 
 [data-theme="dark"] {
@@ -158,6 +159,83 @@ main {
 }
 
 /* tab section */
+/* General Styling */
+.tabs-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.tab-btn {
+	background-color: var(--card-bg);
+	box-shadow: 0 4px 20px var(--shadow);
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+	padding: 10px 24px;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		transform 0.1s ease;
+	color: var(--text-color);
+}
+
+.tab-btn:hover {
+	background-color: var(--primary-accent);
+}
+
+.tab-btn:active {
+	transform: scale(0.95);
+}
+
+.tab-btn.active {
+	background-color: var(--secondary-accent); /* Slightly darker when active */
+}
+
+/* Tab Content Wrapper (The Drawer Magic) */
+.tab-content-wrapper {
+	display: grid;
+	grid-template-rows: 0fr; /* Starts collapsed */
+	transition:
+		grid-template-rows var(--transition-speed1) ease-out,
+		margin var(--transition-speed1) ease-out;
+	background-color: var(--border-color);
+	border-radius: 16px;
+}
+
+.tab-content-wrapper.open {
+	grid-template-rows: 1fr; /* Expands to fit content */
+	margin-bottom: 20px; /* Optional: adds space between open drawer and anything below it */
+}
+
+/* Inner content */
+.tab-inner {
+	overflow: hidden; /* Required for the grid animation to work */
+	min-height: 0; /* Required for the grid animation to work */
+	padding: 0 32px; /* Starts with 0 vertical padding */
+	opacity: 0;
+	transition:
+		padding var(--transition-speed1) ease-out,
+		opacity var(--transition-speed) ease-out;
+}
+
+.tab-content-wrapper.open .tab-inner {
+	padding: 32px; /* Adds vertical padding only when open */
+	opacity: 1;
+}
+
+/* Typography Inside Tabs */
+.tab-inner h3 {
+	margin-top: 0;
+}
 
 /* Responsive Banner (3:1 Aspect Ratio) */
 .banner-container {
