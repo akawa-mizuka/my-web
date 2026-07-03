@@ -1,15 +1,210 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<section class="tab-card">
+			<div
+				class="tab-info"
+				id="tabButtonContainer">
+				<div
+					class="tabs"
+					data-tab="socials">
+					<div
+						class="tab-name"
+						onclick="toggleActiveTab('socials')"
+						>Socials</div
+					>
+				</div>
 
+				<div
+					class="tabs"
+					data-tab="fandoms">
+					<div
+						class="tab-name"
+						onclick="toggleActiveTab('fandoms')"
+						>Fandoms</div
+					>
+				</div>
 
+				<div
+					class="tabs"
+					data-tab="credits">
+					<div
+						class="tab-name"
+						onclick="toggleActiveTab('credits')"
+						>Credits</div
+					>
+				</div>
+			</div>
 
+			<div class="tab-drawer-container">
+				<div
+					class="tab-content"
+					id="content-socials">
+					<div class="tab-content-inner">
+						<p>Follow me on my social media accounts:</p>
+						<ul>
+							<li><a href="#">Twitter</a></li>
+							<li><a href="#">Instagram</a></li>
+							<li><a href="#">ArtStation</a></li>
+						</ul>
+					</div>
+				</div>
 
+				<div
+					class="tab-content"
+					id="content-fandoms">
+					<div class="tab-content-inner">
+						<p>I'm a part of several fandoms, including:</p>
+						<ul>
+							<li><a href="#">Anime</a></li>
+							<li><a href="#">Video Games</a></li>
+							<li><a href="#">Books</a></li>
+						</ul>
+					</div>
+				</div>
 
-</body>
+				<div
+					class="tab-content"
+					id="content-credits">
+					<div class="tab-content-inner">
+						<p
+							>Special thanks to all the amazing creators and artists who inspire me
+							every day. Your work is truly appreciated!</p
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<style>
+			/* --- TAB CARD CONTAINER --- */
+			.tab-card {
+				background-color: var(--card-bg);
+				border-radius: 16px;
+				box-shadow: 0 4px 20px var(--shadow);
+				border: 1px solid var(--border-color);
+				margin-bottom: 30px;
+				padding: 24px 30px;
+				transition: all var(--transition-speed) ease;
+			}
+
+			/* Barisan tombol kapsul horizontal */
+			.tab-info {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 12px;
+				margin-bottom: 10px; /* Jarak ke area kontainer drawer */
+				transition: all 0.4s ease;
+			}
+
+			/* Gaya dasar tombol kapsul */
+			.tab-name {
+				padding: 8px 20px;
+				border: 2px solid #9dad6f;
+				border-radius: 24px;
+				cursor: pointer;
+				font-weight: 600;
+				font-size: 0.9rem;
+				color: #9dad6f;
+				text-transform: capitalize;
+				background: transparent;
+				transition: all 0.3s ease;
+				user-select: none;
+			}
+
+			/* Ketika tombol tab tersebut aktif */
+			.tabs.active .tab-name {
+				background: #9dad6f;
+				color: #191f14;
+			}
+
+			/* --- SELEKTOR MEREDUPKAN TOMBOL LAIN --- */
+			/* Jika kontainer tombol memiliki kelas .has-active, redupkan semua tombol di dalamnya */
+			.tab-info.has-active .tabs {
+				opacity: 0.4;
+				filter: grayscale(1);
+			}
+			/* Kecuali untuk tombol yang memiliki kelas .active, biarkan tetap terang */
+			.tab-info.has-active .tabs.active {
+				opacity: 1;
+				filter: none;
+			}
+
+			/* --- AREA KONTEN DRAWER (DI DALAM CARD) --- */
+			.tab-drawer-container {
+				position: relative;
+				width: 100%;
+			}
+
+			/* Gaya dasar konten (Menutup: height 0, opacity 0) */
+			.tab-content {
+				max-height: 0;
+				overflow: hidden;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px); /* Efek naik sedikit saat menutup */
+				transition:
+					max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+					opacity 0.4s ease,
+					transform 0.4s ease,
+					visibility 0.4s;
+			}
+
+			/* Pembungkus bagian dalam agar padding tidak merusak kalkulasi height 0 */
+			.tab-content-inner {
+				padding: 20px;
+				margin-top: 15px;
+				background-color: transparent;
+				border: 2px solid #bbcaa2;
+				border-radius: 12px;
+				color: var(--text-muted);
+			}
+
+			/* Ketika konten dibuka lewat JavaScript (Membuka: turun & membesar) */
+			.tab-content.open {
+				max-height: 500px; /* Nilai maksimal tinggi drawer yang aman */
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0); /* Turun kembali ke posisi normal */
+			}
+		</style>
+
+		<script>
+			function toggleActiveTab(tabId) {
+				const clickedTabButton = document.querySelector(
+					`.tabs[data-tab="${tabId}"]`,
+				);
+				const clickedTabContent = document.getElementById(`content-${tabId}`);
+				const buttonContainer = document.getElementById("tabButtonContainer");
+
+				// 1. Cek apakah tab yang diklik saat ini sudah terbuka atau belum
+				const isAlreadyOpen = clickedTabButton.classList.contains("active");
+
+				// 2. Tutup semua tab yang sedang terbuka terlebih dahulu (Sistem Satu Terbuka)
+				document
+					.querySelectorAll(".tabs")
+					.forEach((btn) => btn.classList.remove("active"));
+				document
+					.querySelectorAll(".tab-content")
+					.forEach((content) => content.classList.remove("open"));
+				buttonContainer.classList.remove("has-active");
+
+				// 3. Jika tab belum terbuka, maka buka tab tersebut
+				if (!isAlreadyOpen) {
+					clickedTabButton.classList.add("active");
+					clickedTabContent.classList.add("open");
+					buttonContainer.classList.add("has-active"); // Meredupkan tombol lainnya via CSS
+				}
+				// Jika tab sudah terbuka dan diklik lagi, dia akan menutup secara manual (kembali ke kondisi awal)
+			}
+		</script>
+	</body>
 </html>

@@ -7,12 +7,10 @@
 	font-size: 1.8rem;
 	font-weight: 700;
 }
-
 .h2 {
 	font-size: 1.1rem;
 	font-weight: 600;
 }
-
 .p {
 	font-size: 1rem;
 	line-height: 1.6;
@@ -20,9 +18,9 @@
 	margin: 0;
 }
 
-/* * {
+* {
 	outline: 1px solid salmon;
-} */
+}
 
 details > summary {
 	list-style: none;
@@ -137,7 +135,6 @@ main {
 
 /* RESPONSIVE CARDS */
 .profile-card,
-.tab-card,
 .bio-card,
 .about-me-card {
 	background-color: var(--card-bg);
@@ -150,6 +147,17 @@ main {
 		background-color var(--transition-speed) ease,
 		border-color var(--transition-speed) ease;
 }
+
+/* Text info Overlay */
+.profile-info,
+.bio-info,
+.about-me-info {
+	padding: 0 30px 30px 30px;
+	position: relative;
+	text-align: left;
+}
+
+/* tab section */
 
 /* Responsive Banner (3:1 Aspect Ratio) */
 .banner-container {
@@ -168,15 +176,6 @@ main {
 	height: 100%;
 	object-fit: cover;
 	opacity: 0.85;
-}
-
-/* Profile Details & Avatar Overlay */
-.profile-info,
-.bio-info,
-.about-me-info {
-	padding: 0 30px 30px 30px;
-	position: relative;
-	text-align: left;
 }
 
 /* Circular Avatar (1:1 Aspect Ratio) */
