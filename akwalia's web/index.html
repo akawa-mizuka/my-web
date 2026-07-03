@@ -5,7 +5,109 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>welcome</title>
+		<link
+			href="./css/style.css"
+			rel="stylesheet" />
 	</head>
-	<body> </body>
+	<body>
+		<!-- HEADER SECTION -->
+		<header>
+			<nav>
+				<button
+					class="theme-btn"
+					id="themeToggle"
+					aria-label="Toggle dark/light mode">
+					<span id="themeBtnIcon">🌙</span>
+					<span id="themeBtnText">Dark Mode</span>
+				</button>
+				<ul class="nav-links">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about-me?">About Me?</a></li>
+					<li><a href="./1.html">Pixels</a></li>
+					<li><a href="./2.html">Archive</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- toggle theme javascript -->
+		<script src="./js/darkmode.js"></script>
+
+		<main>
+			<!-- PROFILE CARD SECTION -->
+			<section class="profile-card">
+				<!-- 3:1 Responsive Banner -->
+				<div class="banner-container">
+					<!-- Replace src with your real banner image URL later -->
+					<div
+						style="
+							width: 100%;
+							height: 100%;
+							background: linear-gradient(45deg, #1f233a, #3f51b5);
+							opacity: 0.4;
+						"></div>
+				</div>
+
+				<div class="profile-info">
+					<!-- 1:1 Circular Avatar -->
+					<div class="avatar-container">
+						<!-- Replace src with your real avatar or art drawing later -->
+						<div style="width: 100%; height: 100%; background-color: #8fa0be"></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="tab-card"></section>
+
+			<!-- bio section -->
+			<section class="bio-card">
+				<div class="bio-info">
+					<h1>Hi there! I'm Akwalia Khairummina</h1>
+					<h2>Nursing student by day, digital artist and gamer by night.</h2>
+					<p
+						>Welcome to my little digital corner of the internet! I build this website
+						for fun because my exam is coming and suddenly I have the urge to make
+						this lol. I think I will use this for keeping track of my class schedule,
+						archiving my college files and courses, showcasing my artwork, and adding
+						more things while I learn more about coding. Feel free to look around~
+						Wish me luck on this project!.</p
+					>
+				</div>
+			</section>
+
+			<!-- ABOUT ME SECTION -->
+			<section
+				class="about-me-card"
+				id="about-me?">
+				<div class="about-me-info">
+					<h2 class="about-me-title">❣︎ About me ❣︎</h2>
+					<ul class="aliana-bio">
+						<li>INFP</li>
+						<li>19 years old</li>
+						<li>artist and amateur coder</li>
+					</ul>
+
+					<details class="more">
+						<div class="more-bio">
+							<ul class="aliana-bio">
+								<li>gacha games enthusiast</li>
+								<li>i love puzzle escape games</li>
+								<li>i have a passion for learning new things.</li>
+								<li>she/her, but i don't really care what people online call me</li>
+							</ul>
+						</div>
+						<summary class="more-sum">tap for more</summary>
+					</details>
+				</div>
+			</section>
+
+			<!-- FOOTER SECTION -->
+			<footer>
+				<p
+					>© 2026 Akwalia Khairummina. Built with a LOT of stress and late-night
+					ideas.</p
+				>
+			</footer>
+		</main>
+	</body>
 </html>
