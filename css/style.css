@@ -94,7 +94,8 @@ nav {
 	gap: 20px;
 }
 
-.theme-btn {
+.theme-btn,
+.nav-links li a {
 	background-color: var(--card-bg);
 	border: 2px solid var(--border-color);
 	color: var(--text-color);
@@ -110,7 +111,8 @@ nav {
 	transition: all var(--transition-speed) ease;
 }
 
-.theme-btn:hover {
+.theme-btn:hover,
+.nav-links li a:hover {
 	border-color: var(--primary-accent);
 	transform: translateY(-1px);
 }
@@ -125,13 +127,20 @@ nav {
 
 .nav-links li a {
 	text-decoration: none;
-	color: var(--text-color);
-	font-weight: bold;
-	transition: color var(--transition-speed) ease;
+	padding: 5px 10px;
 }
 
-.nav-links li a:hover {
-	color: var(--primary-accent);
+.hamburger {
+	display: none;
+	cursor: pointer;
+	width: 34px;
+}
+.hamburger .line {
+	flex-basis: 100%;
+	height: 4px;
+	height: 3px;
+	background-color: var(--text-color);
+	margin: 3px 0;
 }
 
 /* CONTAINER FOR HOME PAGE */
@@ -341,19 +350,12 @@ details.more[open] summary.more-sum::before {
 }
 
 /* spreadsheet section */
-.spreadsheet-info {
+.sheet-wrapper iframe {
 	border: none;
 	width: 100%;
 	height: 600px;
 	border-radius: 10px;
-}
-
-#spreadsheet-iframe {
-	width: 125%; /* Expand the width to compensate for the zoom out */
-	height: 125%; /* Expand the height to compensate for the zoom out */
-	transform: scale(0.8); /* This zooms the content out to 80% */
-	transform-origin: 0 0; /* Keeps the sheet pinned to the top-left corner */
-	border: none;
+	overflow: hidden;
 }
 
 /* FOOTER SECTION */
@@ -384,5 +386,24 @@ footer p {
 	}
 	.profile-text h1 {
 		font-size: 1.5rem;
+	}
+	nav {
+		flex-wrap: wrap;
+	}
+	.hamburger {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.nav-links {
+		display: none;
+		flex-basis: 100%;
+		flex-wrap: wrap;
+	}
+	.nav-links li {
+		flex-basis: 100%;
+	}
+	.nav-links a {
+		font-size: 28px;
+		font-size: 24px;
 	}
 }

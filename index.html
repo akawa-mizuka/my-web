@@ -21,6 +21,11 @@
 					<span id="themeBtnIcon">🌙</span>
 					<span id="themeBtnText">Dark Mode</span>
 				</button>
+				<div class="hamburger">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
 				<ul class="nav-links">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#about-me?">About Me?</a></li>
@@ -32,6 +37,9 @@
 
 		<!-- toggle theme javascript -->
 		<script src="./js/darkmode.js"></script>
+
+		<!-- hamburger javascript -->
+		<script src="js/navigation.js"></script>
 
 		<main>
 			<!-- PROFILE CARD SECTION -->
@@ -187,9 +195,12 @@
 			<section class="spreadsheet-card">
 				<div class="spreadsheet-info">
 					<h3>My Survival Guide</h3>
-					<iframe
-						id="spreadsheet-iframe"
-						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQI37gnQdCt8UP7z9nMFjRtLEKeN5DHCDvzL9QIxSsAj8h4_Uct4TfyOO3yySixjw/pubhtml?gid=1204978362&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+					<div class="sheet-wrapper">
+						<iframe
+							id="mySheet"
+							src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQI37gnQdCt8UP7z9nMFjRtLEKeN5DHCDvzL9QIxSsAj8h4_Uct4TfyOO3yySixjw/pubhtml?gid=1204978362&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+					</div>
 				</div>
 			</section>
 
