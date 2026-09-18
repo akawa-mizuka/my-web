@@ -5,201 +5,368 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>welcome</title>
+		<title>akwalia's playground</title>
 		<link
 			href="./css/style.css"
 			rel="stylesheet" />
+		<script
+			src="./js/darkmode.js"
+			defer></script>
 	</head>
 	<body>
-		<!-- HEADER SECTION -->
-		<header>
-			<nav>
-				<button
-					class="theme-btn"
-					id="themeToggle"
-					aria-label="Toggle dark/light mode">
-					<span id="themeBtnIcon">🌙</span>
-					<span id="themeBtnText">Dark Mode</span>
-				</button>
-				<ul class="nav-links">
-					<li><a href="#home">Home</a></li>
-					<li><a href="#about-me?">About Me?</a></li>
-					<li><a href="./1.html">Pixels</a></li>
-					<li><a href="./2.html">Archive</a></li>
-				</ul>
-			</nav>
-		</header>
-
+		<!-- theme button -->
+		<button
+			class="theme-btn"
+			id="themeToggle"
+			aria-label="Toggle dark/light mode">
+			<span id="themeBtnIcon">🌙</span>
+			<!-- <span id="themeBtnText">Dark Mode</span> -->
+		</button>
 		<!-- toggle theme javascript -->
-		<script src="./js/darkmode.js"></script>
 
 		<main>
-			<!-- PROFILE CARD SECTION -->
-			<section class="profile-card">
-				<!-- 3:1 Responsive Banner -->
+			<!-- CREATOR SECTION -->
+			<section
+				class="cards"
+				id="home">
+				<!-- Responsive Banner -->
 				<div class="banner-container">
-					<!-- Replace src with your real banner image URL later -->
-					<div
-						style="
-							width: 100%;
-							height: 100%;
-							background: linear-gradient(45deg, #1f233a, #3f51b5);
-							opacity: 0.4;
-						"></div>
+					<div style="width: 100%; height: 100%; background: salmon"> </div>
 				</div>
-
-				<div class="profile-info">
-					<!-- 1:1 Circular Avatar -->
-					<div class="avatar-container">
-						<!-- Replace src with your real avatar or art drawing later -->
-						<div style="width: 100%; height: 100%; background-color: #8fa0be"></div>
-					</div>
+				<div class="mood-badge">
+					<p>today's mood:</p>
+					<p>😊</p>
 				</div>
-			</section>
-
-			<!-- TABS SECTION -->
-			<section class="tab-card">
-				<div class="tabs-container">
-					<!-- Tab Buttons -->
-					<div class="tab-buttons">
-						<button
-							class="tab-btn"
-							data-target="socials"
-							>socials</button
-						>
-						<button
-							class="tab-btn"
-							data-target="fandoms"
-							>fandoms</button
-						>
-						<button
-							class="tab-btn"
-							data-target="credits"
-							>credits</button
-						>
-						<button
-							class="tab-btn"
-							data-target="faq"
-							>faq</button
-						>
-					</div>
-
-					<!-- TAB 1 - SOCIALS -->
-					<div
-						class="tab-content-wrapper"
-						id="socials">
-						<div class="tab-inner">
-							<h3>Socials</h3>
-							<p>Follow me on my social media accounts:</p>
-							<ul>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">Instagram</a></li>
-								<li><a href="#">ArtStation</a></li>
-							</ul>
+				<div class="profile-container">
+					<div style="width: 100%; height: 100%; background: salmon"> </div>
+				</div>
+				<div class="profile-content">
+					<h1>Akwalia Khairummina</h1>
+					<p>akwa</p>
+					<p>19 | she / her</p>
+					<dl class="profile-details">
+						<div>
+							<dt>live in</dt>
+							<dd>Banjarmasin, Indonesia</dd>
 						</div>
-					</div>
-
-					<!-- TAB 2 - FANDOMS -->
-					<div
-						class="tab-content-wrapper"
-						id="fandoms">
-						<div class="tab-inner">
-							<h3>Fandoms</h3>
-							<p>I'm a part of several fandoms, including:</p>
-							<ul>
-								<li>Anime</li>
-								<li>Video Games</li>
-								<li>Books</li>
-							</ul>
+						<div>
+							<dt>speaks</dt>
+							<dd>Indonesian, English</dd>
 						</div>
-					</div>
-
-					<!-- TAB 3 - CREDITS -->
-					<div
-						class="tab-content-wrapper"
-						id="credits">
-						<div class="tab-inner">
-							<h3>Credits</h3>
-							<p
-								>Special thanks to all the amazing creators and artists who inspire me
-								every day. Your work is truly appreciated!</p
-							>
+						<div>
+							<dt>hobbies</dt>
+							<dd>Reading, sleeping, drawing</dd>
 						</div>
-					</div>
-
-					<!-- TAB 4 - FAQ -->
-					<div
-						class="tab-content-wrapper"
-						id="faq">
-						<div class="tab-inner">
-							<h3>FAQ</h3>
-							<p>If you have any questions, feel free to reach out!</p>
-						</div>
-					</div>
+					</dl>
 				</div>
 			</section>
 
-			<!-- TAB JAVASCRIPT -->
-			<script src="./js/tab.js"></script>
-
-			<!-- bio section -->
-			<section class="bio-card">
-				<div class="bio-info">
-					<h1>Hi there! I'm Akwalia Khairummina</h1>
-					<h2>Nursing student by day, digital artist and gamer by night.</h2>
-					<p
-						>Welcome to my little digital corner of the internet! I build this website
-						for fun because my exam is coming and suddenly I have the urge to make
-						this lol. I think I will use this for keeping track of my class schedule,
-						archiving my college files and courses, showcasing my artwork, and adding
-						more things while I learn more about coding. Feel free to look around~
-						Wish me luck on this project!.</p
-					>
-				</div>
-			</section>
+			<!-- NAVIGATION SECTION -->
+			<nav>
+				<ul class="nav-links">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about-me">about-me</a></li>
+					<li><a href="#diary">diary</a></li>
+					<li><a href="#">fandom</a></li>
+					<li><a href="#">gallery</a></li>
+					<li><a href="#">sosial</a></li>
+					<li><a href="#">resources</a></li>
+					<li><a href="#">faq?</a></li>
+				</ul>
+			</nav>
 
 			<!-- ABOUT ME SECTION -->
 			<section
-				class="about-me-card"
-				id="about-me?">
-				<div class="about-me-info">
-					<h2 class="about-me-title">❣︎ About me ❣︎</h2>
-					<ul class="aliana-bio">
-						<li>INFP</li>
-						<li>19 years old</li>
-						<li>artist and amateur coder</li>
-					</ul>
-
-					<details class="more">
-						<div class="more-bio">
-							<ul class="aliana-bio">
-								<li>gacha games enthusiast</li>
-								<li>i love puzzle escape games</li>
-								<li>i have a passion for learning new things.</li>
-								<li>she/her, but i don't really care what people online call me</li>
-							</ul>
+				class="cards"
+				id="about-me">
+				<div class="about-me">
+					<h1>About Me</h1>
+					<h2>Hi there!</h2>
+					<p>
+						Welcome to my little digital corner of the internet!<br />im a nursing
+						major student,an artist and an amateur coder. i love playing puzzle games
+						and a gacha games enthusiast. i have a passion for learning new things.<br />why
+						i build this blog for fun because my exam is coming and suddenly I have
+						the urge to make this lol. I think I will use this for keeping track of my
+						class schedule, archiving my college files and courses, showcasing my
+						artwork, and adding more things while I learn more about coding.<br />Feel
+						free to look around~ Wish me luck on this project!.
+					</p>
+				</div>
+				<div class="currently">
+					<h2>Currently</h2>
+					<div class="widget-container">
+						<div class="music-player">
+							<div class="widget-card">
+								<strong>title</strong>
+								<p>singer</p>
+							</div>
 						</div>
-						<summary class="more-sum">tap for more</summary>
-					</details>
+						<div class="games">
+							<div class="widget-card">
+								<div class="widget-cover"></div>
+								<strong>honkai star rail</strong>
+								<p>dev</p>
+								<button>see more</button>
+							</div>
+							<div class="widget-card">
+								<div class="widget-cover"></div>
+								<strong>genshin impact</strong>
+								<p>dev</p>
+								<button>see more</button>
+							</div>
+							<div class="widget-card">
+								<div class="widget-cover"></div>
+								<strong>minecraft</strong>
+								<p>dev</p>
+								<button>see more</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<section class="spreadsheet-card">
-				<div class="spreadsheet-info">
-					<h3>My Survival Guide</h3>
-					<iframe
-						id="spreadsheet-iframe"
-						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQI37gnQdCt8UP7z9nMFjRtLEKeN5DHCDvzL9QIxSsAj8h4_Uct4TfyOO3yySixjw/pubhtml?gid=1204978362&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+			<!-- DIARY SECTION -->
+			<section
+				class="cards"
+				id="diary">
+				<h2>
+					<span class="diary-title">Dear</span>
+					<span class="diary-title">Diary</span>
+				</h2>
+				<div class="diary-container">
+					<div class="diary-card">
+						<div class="diary-label">
+							<span>date</span>
+							<small>mood</small>
+						</div>
+						<div class="diary-content">
+							<h3 class="diary-heading">title</h3>
+							<p class="diary-text">
+								That&#039;s also clear. You know why, David? He&#039;s the exact
+								opposite of the hero. You understand? Nature is lethal but it
+								doesn&#039;t hold a candle to man. Your bones don&#039;t break, mine do.
+								Then they show that show to the people who make shows, and on the
+								strength of that one show they decide if they&#039;re going to make more
+								shows. She gonna tell me too..
+							</p>
+							<div class="diary-ps">
+								<small>PS: This is a simple diary entry.</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="diary-card">
+						<div class="diary-label">
+							<span>date</span>
+							<small>mood</small>
+						</div>
+						<div class="diary-content">
+							<h3 class="diary-heading">title</h3>
+							<p class="diary-text">
+								That&#039;s also clear. You know why, David? He&#039;s the exact
+								opposite of the hero. You understand? Nature is lethal but it
+								doesn&#039;t hold a candle to man. Your bones don&#039;t break, mine do.
+								Then they show that show to the people who make shows, and on the
+								strength of that one show they decide if they&#039;re going to make more
+								shows. She gonna tell me too..
+							</p>
+							<div class="diary-ps">
+								<small>PS: This is a simple diary entry.</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="diary-card">
+						<div class="diary-label">
+							<span>date</span>
+							<small>mood</small>
+						</div>
+						<div class="diary-content">
+							<h3 class="diary-heading">title</h3>
+							<p class="diary-text">
+								That&#039;s also clear. You know why, David? He&#039;s the exact
+								opposite of the hero. You understand? Nature is lethal but it
+								doesn&#039;t hold a candle to man. Your bones don&#039;t break, mine do.
+								Then they show that show to the people who make shows, and on the
+								strength of that one show they decide if they&#039;re going to make more
+								shows. She gonna tell me too..
+							</p>
+							<div class="diary-ps">
+								<small>PS: This is a simple diary entry.</small>
+							</div>
+						</div>
+					</div>
+
+					<div class="diary-card">
+						<div class="diary-label">
+							<span>date</span>
+							<small>mood</small>
+						</div>
+						<div class="diary-content">
+							<h3 class="diary-heading">title</h3>
+							<p class="diary-text">
+								That&#039;s also clear. You know why, David? He&#039;s the exact
+								opposite of the hero. You understand? Nature is lethal but it
+								doesn&#039;t hold a candle to man. Your bones don&#039;t break, mine do.
+								Then they show that show to the people who make shows, and on the
+								strength of that one show they decide if they&#039;re going to make more
+								shows. She gonna tell me too..
+							</p>
+							<div class="diary-ps">
+								<small>PS: This is a simple diary entry.</small>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			<!-- FOOTER SECTION -->
-			<footer>
-				<p
-					>© 2026 Akwalia Khairummina. Built with a LOT of stress and late-night
-					ideas.</p
-				>
-			</footer>
+			<section
+				class="cards"
+				id="fandoms">
+				<h1>Fandoms</h1>
+				<p>some fandoms i once in, including:</p>
+				<div class="tab-box">
+					<div class="tab-nav">
+						<!---------------------tab 1-------------------->
+						<div class="tab">
+							<details
+								name="profile-tabs"
+								open>
+								<summary>manhwa</summary>
+
+								<div class="tab-content">
+									<h2>MANHWA</h2>
+									<div class="inside">
+										<ol>
+											<li class="fandom-list">
+												<h3 class="title">Omniscient Reader's Viewpoint</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+
+											<li class="fandom-list">
+												<h3 class="title">Solo Leveling</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+
+											<li class="fandom-list">
+												<h3 class="title">The Beginning After The End</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<!---------------------tab 2-------------------->
+						<div class="tab">
+							<details name="profile-tabs">
+								<summary>games</summary>
+
+								<div class="tab-content">
+									<h2>GAMES</h2>
+									<div class="inside">
+										<ol>
+											<li class="fandom-list">
+												<h3 class="title">genshin impact</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+
+											<li class="fandom-list">
+												<h3 class="title">honkai star rail</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+
+											<li class="fandom-list">
+												<h3 class="title">wuthering waves</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+
+											<li class="fandom-list">
+												<h3 class="title">cookie run kingdom</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<!---------------------tab 3-------------------->
+						<div class="tab">
+							<details name="profile-tabs">
+								<summary>anime</summary>
+
+								<div class="tab-content">
+									<h2>ANIME</h2>
+									<div class="inside">
+										<ol>
+											<li class="fandom-list">
+												<h3 class="title">naruto</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<!---------------------tab 4-------------------->
+						<div class="tab">
+							<details name="profile-tabs">
+								<summary>movie</summary>
+
+								<div class="tab-content">
+									<h2>MOVIES</h2>
+									<div class="inside">
+										<ol>
+											<li class="fandom-list">
+												<h3 class="title">marvel</h3>
+												<div class="genre-tag-container">
+													<span class="genre-tag">#Action</span>
+													<span class="genre-tag">#Fantasy</span>
+												</div>
+											</li>
+										</ol>
+									</div>
+								</div>
+							</details>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
+		<footer>
+			<p
+				>©2026 by Akwalia Khairummina. All Rights Reserved. Site Designed by me,
+				duh.<br />
+				Built with a LOT of stress and late-night ideas.</p
+			>
+		</footer>
 	</body>
 </html>

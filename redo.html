@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>welcome</title>
+		<link
+			href="./css/style.css"
+			rel="stylesheet" />
+	</head>
+	<body>
+		<!-- HEADER SECTION -->
+		<header>
+			<nav>
+				<button
+					class="theme-btn"
+					id="themeToggle"
+					aria-label="Toggle dark/light mode">
+					<span id="themeBtnIcon">🌙</span>
+					<span id="themeBtnText">Dark Mode</span>
+				</button>
+				<ul class="nav-links">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about-me?">About Me?</a></li>
+					<li><a href="./1.html">Pixels</a></li>
+					<li><a href="./2.html">Archive</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- toggle theme javascript -->
+		<script src="./js/darkmode.js"></script>
+
+		<main>
+			<!-- PROFILE CARD SECTION -->
+			<section class="profile-card">
+				<!-- 3:1 Responsive Banner -->
+				<div class="banner-container">
+					<!-- Replace src with your real banner image URL later -->
+					<div
+						style="
+							width: 100%;
+							height: 100%;
+							background: linear-gradient(45deg, #1f233a, #3f51b5);
+							opacity: 0.4;
+						"></div>
+				</div>
+
+				<div class="profile-info">
+					<!-- 1:1 Circular Avatar -->
+					<div class="avatar-container">
+						<!-- Replace src with your real avatar or art drawing later -->
+						<div style="width: 100%; height: 100%; background-color: #8fa0be"></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- TABS SECTION -->
+			<section class="tab-card">
+				<div class="tabs-container">
+					<!-- Tab Buttons -->
+					<div class="tab-buttons">
+						<button
+							class="tab-btn"
+							data-target="socials"
+							>socials</button
+						>
+						<button
+							class="tab-btn"
+							data-target="fandoms"
+							>fandoms</button
+						>
+						<button
+							class="tab-btn"
+							data-target="credits"
+							>credits</button
+						>
+						<button
+							class="tab-btn"
+							data-target="faq"
+							>faq</button
+						>
+					</div>
+
+					<!-- TAB 1 - SOCIALS -->
+					<div
+						class="tab-content-wrapper"
+						id="socials">
+						<div class="tab-inner">
+							<h3>Socials</h3>
+							<p>Follow me on my social media accounts:</p>
+							<ul>
+								<li><a href="#">Twitter</a></li>
+								<li><a href="#">Instagram</a></li>
+								<li><a href="#">ArtStation</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- TAB 2 - FANDOMS -->
+					<div
+						class="tab-content-wrapper"
+						id="fandoms">
+						<div class="tab-inner">
+							<h3>Fandoms</h3>
+							<p>I'm a part of several fandoms, including:</p>
+							<ul>
+								<li>Anime</li>
+								<li>Video Games</li>
+								<li>Books</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- TAB 3 - CREDITS -->
+					<div
+						class="tab-content-wrapper"
+						id="credits">
+						<div class="tab-inner">
+							<h3>Credits</h3>
+							<p
+								>Special thanks to all the amazing creators and artists who inspire me
+								every day. Your work is truly appreciated!</p
+							>
+						</div>
+					</div>
+
+					<!-- TAB 4 - FAQ -->
+					<div
+						class="tab-content-wrapper"
+						id="faq">
+						<div class="tab-inner">
+							<h3>FAQ</h3>
+							<p>If you have any questions, feel free to reach out!</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- TAB JAVASCRIPT -->
+			<script src="./js/tab.js"></script>
+
+			<!-- bio section -->
+			<section class="bio-card">
+				<div class="bio-info">
+					<h1>Hi there! I'm Akwalia Khairummina</h1>
+					<h2>Nursing student by day, digital artist and gamer by night.</h2>
+					<p
+						>Welcome to my little digital corner of the internet! I build this website
+						for fun because my exam is coming and suddenly I have the urge to make
+						this lol. I think I will use this for keeping track of my class schedule,
+						archiving my college files and courses, showcasing my artwork, and adding
+						more things while I learn more about coding. Feel free to look around~
+						Wish me luck on this project!.</p
+					>
+				</div>
+			</section>
+
+			<!-- ABOUT ME SECTION -->
+			<section
+				class="about-me-card"
+				id="about-me?">
+				<div class="about-me-info">
+					<h2 class="about-me-title">❣︎ About me ❣︎</h2>
+					<ul class="aliana-bio">
+						<li>INFP</li>
+						<li>19 years old</li>
+						<li>artist and amateur coder</li>
+					</ul>
+
+					<details class="more">
+						<div class="more-bio">
+							<ul class="aliana-bio">
+								<li>gacha games enthusiast</li>
+								<li>i love puzzle escape games</li>
+								<li>i have a passion for learning new things.</li>
+								<li>she/her, but i don't really care what people online call me</li>
+							</ul>
+						</div>
+						<summary class="more-sum">tap for more</summary>
+					</details>
+				</div>
+			</section>
+
+			<section class="spreadsheet-card">
+				<div class="spreadsheet-info">
+					<h3>My Survival Guide</h3>
+					<iframe
+						id="spreadsheet-iframe"
+						src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQI37gnQdCt8UP7z9nMFjRtLEKeN5DHCDvzL9QIxSsAj8h4_Uct4TfyOO3yySixjw/pubhtml?gid=1204978362&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+				</div>
+			</section>
+
+			<!-- FOOTER SECTION -->
+			<footer>
+				<p
+					>© 2026 Akwalia Khairummina. Built with a LOT of stress and late-night
+					ideas.</p
+				>
+			</footer>
+		</main>
+	</body>
+</html>

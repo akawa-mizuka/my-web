@@ -1,0 +1,388 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+.h1 {
+	font-size: 1.8rem;
+	font-weight: 700;
+}
+.h2 {
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+.p {
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--text-muted);
+	margin: 0;
+}
+a {
+	color: var(--text-muted);
+	transition: color var(--transition-speed) ease;
+}
+a:hover {
+	color: var(--primary-accent);
+}
+
+/* * {
+	outline: 1px solid salmon;
+} */
+
+details > summary {
+	list-style: none;
+}
+details > summary::-webkit-details-marker {
+	display: none;
+}
+/* CSS VARIABLES FOR LIGHT & DARK MODE */
+:root {
+	/* Light Mode: Clinical Pastel */
+	--bg-color: #faf9f6;
+	--card-bg: #ffffff;
+	--text-color: #2d3142;
+	--text-muted: #5c6175;
+	--primary-accent: #9bae96;
+	--secondary-accent: #7d98a1;
+	--border-color: #e2e4e8;
+	--shadow: rgba(0, 0, 0, 0.05);
+	--transition-speed: 0.3s;
+	--transition-speed1: 0.4s;
+}
+
+[data-theme="dark"] {
+	/* Dark Mode: Cosmic / Deep Space */
+	--bg-color: #0b0c15;
+	--card-bg: #131526;
+	--text-color: #e0e3e7;
+	--text-muted: #a0a5b5;
+	--primary-accent: #00f0ff;
+	--secondary-accent: #f72585;
+	--border-color: #22263f;
+	--shadow: rgba(0, 0, 0, 0.3);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	transition:
+		background-color var(--transition-speed) ease,
+		color var(--transition-speed) ease;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header {
+	width: 100%;
+	max-width: 800px;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* position: fixed; */
+	z-index: 1000;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.theme-btn {
+	background-color: var(--card-bg);
+	border: 2px solid var(--border-color);
+	color: var(--text-color);
+	padding: 10px 16px;
+	border-radius: 20px;
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	box-shadow: 0 2px 8px var(--shadow);
+	transition: all var(--transition-speed) ease;
+}
+
+.theme-btn:hover {
+	border-color: var(--primary-accent);
+	transform: translateY(-1px);
+}
+
+.nav-links {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 16px;
+}
+
+.nav-links li a {
+	text-decoration: none;
+	color: var(--text-color);
+	font-weight: bold;
+	transition: color var(--transition-speed) ease;
+}
+
+.nav-links li a:hover {
+	color: var(--primary-accent);
+}
+
+/* CONTAINER FOR HOME PAGE */
+main {
+	width: 100%;
+	max-width: 800px;
+	padding: 0 20px 60px 20px;
+}
+
+/* RESPONSIVE CARDS */
+.profile-card,
+.bio-card,
+.spreadsheet-card,
+.about-me-card {
+	background-color: var(--card-bg);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 20px var(--shadow);
+	border: 1px solid var(--border-color);
+	margin-bottom: 30px;
+	transition:
+		background-color var(--transition-speed) ease,
+		border-color var(--transition-speed) ease;
+}
+
+/* Text info Overlay */
+.profile-info,
+.bio-info,
+.spreadsheet-info,
+.about-me-info {
+	padding: 0 30px 30px 30px;
+	position: relative;
+	text-align: left;
+}
+
+/* Responsive Banner (3:1 Aspect Ratio) */
+.banner-container {
+	width: 100%;
+	aspect-ratio: 3 / 1;
+	background: linear-gradient(
+		135deg,
+		var(--secondary-accent),
+		var(--primary-accent)
+	);
+	position: relative;
+}
+
+.banner-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.85;
+}
+
+/* Circular Avatar (1:1 Aspect Ratio) */
+.avatar-container {
+	width: 110px;
+	height: 110px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	border: 5px solid var(--card-bg);
+	background-color: #cdd4db;
+	position: relative;
+	margin-top: -55px; /* Pulls avatar up into banner */
+	overflow: hidden;
+	display: inline-block;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	transition: border-color var(--transition-speed) ease;
+}
+
+.avatar-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* tab section */
+/* General Styling */
+.tabs-container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+
+.tab-btn {
+	background-color: var(--card-bg);
+	box-shadow: 0 4px 20px var(--shadow);
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+	padding: 10px 24px;
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		transform 0.1s ease;
+	color: var(--text-color);
+}
+
+.tab-btn:hover {
+	background-color: var(--primary-accent);
+	color: var(--card-bg);
+}
+
+.tab-btn:active {
+	transform: scale(0.95);
+}
+
+.tab-btn.active {
+	background-color: var(--secondary-accent);
+	color: var(--border-color);
+}
+
+/* Tab Content Wrapper (The Drawer Magic) */
+.tab-content-wrapper {
+	display: grid;
+	grid-template-rows: 0fr; /* Starts collapsed */
+	transition:
+		grid-template-rows var(--transition-speed1) ease-out,
+		margin var(--transition-speed1) ease-out;
+	background-color: var(--border-color);
+	border-radius: 16px;
+}
+
+.tab-content-wrapper.open {
+	grid-template-rows: 1fr; /* Expands to fit content */
+	margin-bottom: 20px; /* Optional: adds space between open drawer and anything below it */
+}
+
+/* Inner content */
+.tab-inner {
+	overflow: hidden; /* Required for the grid animation to work */
+	min-height: 0; /* Required for the grid animation to work */
+	padding: 0 32px; /* Starts with 0 vertical padding */
+	opacity: 0;
+	transition:
+		padding var(--transition-speed1) ease-out,
+		opacity var(--transition-speed) ease-out;
+}
+
+.tab-content-wrapper.open .tab-inner {
+	padding: 32px; /* Adds vertical padding only when open */
+	opacity: 1;
+}
+
+/* Typography Inside Tabs */
+.tab-inner h3 {
+	margin-top: 0;
+}
+
+.bio-info h2 {
+	font-size: 1.1rem;
+	color: var(--primary-accent);
+	margin: 0 0 15px 0;
+}
+
+/* ABOUT ME SECTION */
+.about-me-title {
+	color: var(--secondary-accent);
+	margin-bottom: 10px;
+}
+.aliana-bio {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.aliana-bio li {
+	border-bottom: 1px solid var(--primary-accent);
+	padding: 4px 20px;
+}
+.more-bio {
+	order: 1;
+}
+details.more {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	transition: height 0.5s ease;
+	height: 25px;
+}
+details.more[open] {
+	height: fit-content;
+	transition: height 0.5s ease;
+}
+details.more summary.more-sum {
+	order: 2;
+	cursor: pointer;
+	padding-top: 8px;
+	color: var(--text-muted);
+	font-size: 0.8rem;
+	font-weight: bold;
+	outline: none;
+}
+details.more[open] summary.more-sum {
+	font-size: 0;
+}
+details.more[open] summary.more-sum::before {
+	content: "tap for less";
+	font-size: 0.8rem;
+}
+
+/* spreadsheet section */
+.spreadsheet-info {
+	border: none;
+	width: 100%;
+	height: 600px;
+	border-radius: 10px;
+}
+
+#spreadsheet-iframe {
+	width: 125%; /* Expand the width to compensate for the zoom out */
+	height: 125%; /* Expand the height to compensate for the zoom out */
+	transform: scale(0.8); /* This zooms the content out to 80% */
+	transform-origin: 0 0; /* Keeps the sheet pinned to the top-left corner */
+	border: none;
+}
+
+/* FOOTER SECTION */
+footer {
+	margin-top: auto;
+	width: 100%;
+	max-width: 800px;
+	padding: 30px 0px;
+	text-align: center;
+	border-top: 1px solid var(--border-color);
+}
+
+footer p {
+	font-size: 0.85rem;
+	color: var(--text-muted);
+	margin: 0;
+}
+
+/* RESPONSIVE DESIGN ADJUSTMENTS */
+@media (max-width: 600px) {
+	.profile-info {
+		padding: 0 20px 20px 20px;
+	}
+	.avatar-container {
+		width: 90px;
+		height: 90px;
+		margin-top: -45px;
+	}
+	.profile-text h1 {
+		font-size: 1.5rem;
+	}
+}
