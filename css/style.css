@@ -64,6 +64,7 @@ nav {
 	flex-direction: row;
 	list-style: none;
 	gap: 1rem;
+	overflow-x: auto;
 }
 .widget-container {
 	width: 100%;
@@ -72,6 +73,7 @@ nav {
 	flex-direction: row;
 	padding: 0 20px 60px 20px;
 	gap: 1rem;
+	overflow-x: scroll;
 }
 .games {
 	display: flex;
