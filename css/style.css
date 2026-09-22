@@ -247,3 +247,37 @@ nav {
 	overflow-y: auto;
 	padding-right: 6px;
 }
+
+@media (max-width: 600px) {
+	main {
+		padding: 0 12px 40px;
+	}
+
+	.cards {
+		width: 100%;
+	}
+
+	.nav-links {
+		padding: 0 12px;
+		gap: 0.75rem;
+	}
+
+	.profile-container {
+		width: min(100%, 240px);
+	}
+
+	.profile-content,
+	.about-me {
+		width: 100%;
+		padding: 0 16px;
+	}
+
+	.profile-details > div {
+		grid-template-columns: 70px minmax(0, 1fr);
+		gap: 8px;
+	}
+
+	.tab-content {
+		padding: 1.5rem 1rem;
+	}
+}
