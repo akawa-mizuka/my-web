@@ -61,6 +61,11 @@ main {
 	padding: 6px 0;
 	border-bottom: 1px dotted #a8a29e;
 }
+.currently {
+	width: 100%;
+	min-width: 0;
+}
+
 nav {
 	position: sticky;
 	top: 0;
