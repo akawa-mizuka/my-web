@@ -21,51 +21,8 @@ main {
 	display: flex;
 	flex-direction: column;
 }
-.theme-btn {
-	position: fixed;
-	z-index: 999;
-}
-.cards {
-	align-items: center;
-	background-color: #ffff;
-	border: 1px solid #0000001a;
-	/* margin-bottom: 30px; */
-	display: flex;
-	flex-direction: column;
-	height: fit-content;
-}
-/* Responsive Banner (3:1 Aspect Ratio) */
-.banner-container {
-	width: 100%;
-	aspect-ratio: 3 / 1;
-	position: relative;
-}
-.mood-badge {
-	width: 100%;
-	height: fit-content;
-	border: 1px solid #0000001a;
-	display: flex;
-	flex-direction: row;
-}
-.profile-container {
-	width: 300px;
-	max-width: 100%;
-	/* width: calc(100% - 20px); */
-	aspect-ratio: 1 / 1;
-	position: relative;
-}
-.profile-details > div {
-	display: grid;
-	grid-template-columns: 78px minmax(0, 1fr);
-	gap: 10px;
-	padding: 6px 0;
-	border-bottom: 1px dotted #a8a29e;
-}
-.currently {
-	width: 100%;
-	min-width: 0;
-}
 
+/* NAVIGASI SECTION */
 nav {
 	position: sticky;
 	top: 0;
@@ -80,6 +37,49 @@ nav {
 	overflow-y: hidden;
 	scroll-snap-type: x proximity;
 }
+
+/* THEME SECTION */
+.theme-btn {
+	position: fixed;
+	z-index: 999;
+}
+
+/* CARDS GENERAL */
+.cards {
+	align-items: center;
+	background-color: #ffff;
+	border: 1px solid #0000001a;
+	/* margin-bottom: 30px; */
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+}
+
+/* Responsive Banner (3:1 Aspect Ratio) */
+.banner-container {
+	width: 100%;
+	aspect-ratio: 3 / 1;
+	position: relative;
+}
+
+/* HOME SECTION */
+.profile-container {
+	width: 300px;
+	max-width: 100%;
+	aspect-ratio: 1 / 1;
+	position: relative;
+}
+.profile-details > div {
+	display: grid;
+	grid-template-columns: 78px minmax(0, 1fr);
+	gap: 10px;
+	padding: 6px 0;
+	border-bottom: 1px dotted #a8a29e;
+}
+.currently {
+	width: 100%;
+	min-width: 0;
+}
 .widget-container {
 	width: 100%;
 	min-width: 0;
@@ -92,18 +92,17 @@ nav {
 	overflow-y: hidden;
 	scroll-snap-type: x proximity;
 }
-
 .widget-container > *,
 .games > * {
 	flex: 0 0 auto;
 }
-
 .games {
 	display: flex;
 	flex-direction: row;
 	gap: 1rem;
 }
 
+/* TAB SECTION */
 .tab-box {
 	position: relative;
 	z-index: 2;
@@ -112,17 +111,14 @@ nav {
 	display: grid;
 	grid-template-rows: auto 0;
 }
-
 .tab-box:has(details[open]) {
 	grid-template-rows: auto minmax(calc(350px + 1rem + 11px), auto);
 }
-
 .tab-panels {
 	position: relative;
 	grid-row: 2;
 	min-width: 0;
 }
-
 .tab-nav {
 	position: relative;
 	width: 100%;
@@ -134,58 +130,46 @@ nav {
 	padding-bottom: 0.5rem;
 	scroll-snap-type: x proximity;
 }
-
 ::-webkit-scrollbar {
 	height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-	/* background: #111; */
+	/* background: ; */
 	border-radius: 999px;
 }
-
 ::-webkit-scrollbar-thumb {
-	/* background: #3c0c10; */
+	/* background: ; */
 	border-radius: 0;
 }
-
 .tab {
 	flex: 0 0 auto;
 }
-
 .tab details {
 	position: static;
 }
-
 .tab summary {
 	list-style: none;
 	cursor: pointer;
 	white-space: nowrap;
 	padding: 0.9rem 1.5rem;
-	/* border: 1px solid #2b0508; */
 	background: seagreen;
-	/* color: #ddd; */
 	/* font-family: "Fraunces", "DM Serif Text"; */
 	letter-spacing: 0.08em;
 	transition: 0.35s;
 }
-
 .tab summary::-webkit-details-marker {
 	display: none;
 }
-
 .tab summary:hover {
-	/* background: linear-gradient(180deg, #3c0c10, #220608);
-	border-color: #7b2a31;
-	color: #fff; */
+	/* background: ;
+	border-color: ;
+	color:; */
 }
-
 .tab details[open] summary {
-	/* background: linear-gradient(180deg, #3c0c10, #220608);
-	border-color: #7b2a31; */
-	color: #000;
+	/* background:;
+	border-color:; */
+	/* color: #000; */
 }
-
 .tab-content {
 	position: absolute;
 	left: 0;
@@ -195,14 +179,12 @@ nav {
 	min-height: 350px;
 	padding: 2.5rem;
 	background: transparent;
-	/* color: #d5d5d5; */
+	/* color: ; */
 	animation: fade 0.3s ease;
 }
-
 .tab details[open] .tab-content {
 	display: block;
 }
-
 .tab-box:has(.tab:nth-child(1) details[open])
 	.tab-panels
 	.tab-content:nth-child(1),
@@ -223,14 +205,12 @@ nav {
 	.tab-content:nth-child(6) {
 	display: block;
 }
-
 .tab-content h2 {
 	margin: 0 0 1rem;
 	/* color: #fff; */
 	/* font-family: "Fraunces", "DM Serif Text"; */
-	font-size: clamp(2rem, 4vw, 3rem);
+	/* font-size: clamp(2rem, 4vw, 3rem); */
 }
-
 @keyframes fade {
 	from {
 		opacity: 0;
@@ -241,7 +221,6 @@ nav {
 		transform: translateY(0);
 	}
 }
-
 .inside {
 	max-height: 220px;
 	overflow-y: auto;
