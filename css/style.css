@@ -16,7 +16,7 @@ body {
 main {
 	width: 100%;
 	max-width: 800px;
-	padding: 0 20px 0 20px;
+	padding: 0;
 	gap: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -109,9 +109,22 @@ nav {
 	z-index: 2;
 	width: 100%;
 	min-width: 0;
+	display: grid;
+	grid-template-rows: auto 0;
+}
+
+.tab-box:has(details[open]) {
+	grid-template-rows: auto minmax(calc(350px + 1rem + 11px), auto);
+}
+
+.tab-panels {
+	position: relative;
+	grid-row: 2;
+	min-width: 0;
 }
 
 .tab-nav {
+	position: relative;
 	width: 100%;
 	min-width: 0;
 	display: flex;
@@ -150,8 +163,7 @@ nav {
 	white-space: nowrap;
 	padding: 0.9rem 1.5rem;
 	/* border: 1px solid #2b0508; */
-	border-radius: 999px;
-	/* background: linear-gradient(180deg, #050505, #090909); */
+	background: seagreen;
 	/* color: #ddd; */
 	/* font-family: "Fraunces", "DM Serif Text"; */
 	letter-spacing: 0.08em;
@@ -178,18 +190,37 @@ nav {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: calc(100% + 1rem);
+	top: 1rem;
 	display: none;
 	min-height: 350px;
 	padding: 2.5rem;
-	/* background: linear-gradient(180deg, #050505, #200000);
-	border: 3px solid #2b0508; */
+	background: transparent;
 	/* color: #d5d5d5; */
-	border-radius: 2rem;
 	animation: fade 0.3s ease;
 }
 
 .tab details[open] .tab-content {
+	display: block;
+}
+
+.tab-box:has(.tab:nth-child(1) details[open])
+	.tab-panels
+	.tab-content:nth-child(1),
+.tab-box:has(.tab:nth-child(2) details[open])
+	.tab-panels
+	.tab-content:nth-child(2),
+.tab-box:has(.tab:nth-child(3) details[open])
+	.tab-panels
+	.tab-content:nth-child(3),
+.tab-box:has(.tab:nth-child(4) details[open])
+	.tab-panels
+	.tab-content:nth-child(4),
+.tab-box:has(.tab:nth-child(5) details[open])
+	.tab-panels
+	.tab-content:nth-child(5),
+.tab-box:has(.tab:nth-child(6) details[open])
+	.tab-panels
+	.tab-content:nth-child(6) {
 	display: block;
 }
 
